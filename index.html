@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sabrina Mannan Meem | Machine Learning &amp; AI for Healthcare</title>
+<meta name="description" content="Portfolio of Sabrina Mannan Meem: machine learning, deep learning, image analysis and AI for healthcare. Published researcher and data management assistant at icddr,b, Dhaka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F7; --surface:#FFFFFF; --ink:#13242B; --muted:#4F636B; --line:#D3DEE2;
+  --accent:#0B6B6E; --accent-ink:#FFFFFF; --soft:#DDEEEE;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D191E; --surface:#13242B; --ink:#E5EEF0; --muted:#9BB0B7; --line:#254049;
+    --accent:#5CC8C2; --accent-ink:#0D191E; --soft:#16393D;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D191E; --surface:#13242B; --ink:#E5EEF0; --muted:#9BB0B7; --line:#254049;
+  --accent:#5CC8C2; --accent-ink:#0D191E; --soft:#16393D;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;margin:0}
+p{margin:0 0 1rem}
+ul{margin:0;padding-left:1.1rem}
+li{margin-bottom:.35rem}
+
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,40px);gap:clamp(24px,5vw,72px)}
+aside{position:sticky;top:0;align-self:start;padding:48px 0;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+aside .id{font:600 1.35rem/1.25 var(--serif)}
+aside .role{color:var(--muted);font-size:.9rem;margin-top:.4rem}
+nav ul{list-style:none;padding:0;margin:2rem 0 0}
+nav a{display:block;padding:.3rem 0;color:var(--muted);text-decoration:none;font-size:.95rem;border-left:2px solid transparent;padding-left:12px;margin-left:-14px}
+nav a:hover,nav a.on{color:var(--ink);border-left-color:var(--accent)}
+.side-foot{display:flex;gap:.6rem;align-items:center;font-size:.85rem}
+.theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:.3rem .6rem;font:inherit;cursor:pointer}
+.theme:hover{color:var(--ink);border-color:var(--muted)}
+
+main{padding:48px 0 80px;min-width:0}
+section{padding:0 0 3.5rem}
+section+section{padding-top:3.5rem;border-top:1px solid var(--line)}
+h2{font-size:1.6rem;margin-bottom:1.5rem}
+
+/* hero */
+.hero h1{font-size:clamp(2.6rem,6vw,4.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+.hero .lede{font:400 1.3rem/1.5 var(--serif);max-width:34em;margin:1.5rem 0 1.75rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2.5rem}
+.btn{display:inline-block;padding:.65rem 1.1rem;border-radius:6px;font-weight:500;text-decoration:none;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.btn:hover{filter:brightness(1.1)}
+
+/* publications */
+.pub{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;padding:1.25rem 1.4rem;margin-bottom:1rem}
+.pub h3{font-size:1.15rem;margin-bottom:.5rem}
+.pub .by{color:var(--muted);font-size:.92rem;margin-bottom:.5rem}
+.pub .by b{color:var(--ink);font-weight:600}
+.pub .where{font-size:.92rem;margin-bottom:.6rem}
+.pub .where i{font-family:var(--serif);font-size:1rem}
+.hero .pubs{margin-top:.5rem}
+.hero .pubs h2{font-size:1.1rem;margin-bottom:.9rem;color:var(--muted);font-family:var(--sans);font-weight:500}
+
+/* projects */
+.proj{margin-bottom:2.25rem}
+.proj h3{font-size:1.25rem}
+.proj .sub{font:italic 400 1.02rem/1.4 var(--serif);color:var(--muted);margin:.3rem 0 .8rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;padding:0;list-style:none}
+.chips li{margin:0;background:var(--soft);color:var(--ink);font-size:.82rem;padding:.2rem .65rem;border-radius:99px}
+
+/* timeline */
+.tl{list-style:none;padding:0;margin:0;border-left:2px solid var(--line)}
+.tl>li{position:relative;padding:0 0 1.9rem 1.5rem;margin:0}
+.tl>li::before{content:"";position:absolute;left:-7px;top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.tl h3{font-size:1.1rem}
+.tl .meta{color:var(--muted);font-size:.9rem;margin:.15rem 0 .6rem}
+
+/* skills */
+dl.skills{display:grid;grid-template-columns:max-content 1fr;gap:.7rem 1.5rem;margin:0}
+dl.skills dt{font-weight:600}
+dl.skills dd{margin:0;color:var(--muted)}
+
+.edu{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1.2rem 1.4rem}
+.edu h3{font-size:1.1rem}
+.edu p{margin:.3rem 0 0;color:var(--muted)}
+.contact-list{list-style:none;padding:0;font-size:1.05rem}
+.contact-list li{margin-bottom:.5rem}
+footer{color:var(--muted);font-size:.85rem;padding-top:1rem}
+
+@media (max-width:860px){
+  .layout{display:block}
+  aside{position:static;height:auto;padding:24px 0 0}
+  nav ul{display:flex;flex-wrap:wrap;gap:.2rem 1rem;margin-top:1rem}
+  nav a{border:0;margin:0;padding:.2rem 0}
+  .side-foot{margin-top:1rem}
+  main{padding-top:32px}
+  dl.skills{grid-template-columns:1fr;gap:.1rem}
+  dl.skills dd{margin-bottom:.8rem}
+}
+
+/* polish */
+:root{--glow:rgba(11,107,110,.16);--glow2:rgba(70,140,200,.10);--shadow:0 1px 2px rgba(19,36,43,.06),0 8px 24px rgba(19,36,43,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--glow:rgba(92,200,194,.14);--glow2:rgba(90,140,220,.10);--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3)}}
+:root[data-theme="dark"]{--glow:rgba(92,200,194,.14);--glow2:rgba(90,140,220,.10);--shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3)}
+body{background-image:radial-gradient(760px 420px at 88% -4%,var(--glow),transparent 70%),radial-gradient(640px 380px at 8% 4%,var(--glow2),transparent 70%);background-repeat:no-repeat;background-attachment:fixed}
+aside .id{font-size:1.45rem}
+nav a{transition:color .15s,border-color .15s}
+h2{display:flex;align-items:center;gap:.75rem}
+h2::before{content:"";width:28px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--glow2));background:var(--accent);flex:none}
+.hero h1{color:var(--ink);background:linear-gradient(100deg,var(--ink) 35%,var(--accent) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.08em}
+.hero .lede{border-left:3px solid var(--accent);padding-left:1.1rem}
+.btn{transition:transform .15s,box-shadow .15s,filter .15s}
+.btn.primary{box-shadow:0 4px 14px var(--glow)}
+.btn:hover{transform:translateY(-1px)}
+.pub{box-shadow:var(--shadow);border-radius:10px;transition:transform .2s,box-shadow .2s}
+.pub:hover{transform:translateY(-2px)}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.6rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.proj h3{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.tag{font:500 .75rem/1 var(--sans);background:var(--soft);color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:.3rem .65rem}
+.chips li{border:1px solid var(--line)}
+.repo{display:inline-block;margin-top:1rem;font-weight:500}
+.tl>li::before{box-shadow:0 0 0 4px var(--bg),0 0 0 6px var(--soft)}
+.edu{border-radius:10px;box-shadow:var(--shadow)}
+dl.skills{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.6rem;box-shadow:var(--shadow)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero>:nth-child(2){animation-delay:.08s}.hero>:nth-child(3){animation-delay:.16s}.hero>:nth-child(4){animation-delay:.24s}.hero>:nth-child(5){animation-delay:.32s}
+@media (prefers-reduced-motion:reduce){.hero>*{animation:none}.pub,.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <div>
+      <div class="id">Sabrina Mannan Meem</div>
+      <div class="role">Machine learning for healthcare</div>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#top" class="on">Overview</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#training">Training</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="side-foot">
+      <button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme">Theme</button>
+    </div>
+  </aside>
+
+  <main>
+    <section id="top" class="hero">
+      <h1>Sabrina Mannan Meem</h1>
+      <p class="lede">I build and evaluate machine learning models for health and language data. My published work covers explainable diabetes prediction and Bangla sentiment analysis, and I now manage research data at icddr,b in Dhaka.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:sabrinameem1@gmail.com">Email me</a>
+        <a class="btn ghost" href="#research">See my research</a>
+        <a class="btn ghost" href="https://github.com/SabrinaMannan" rel="noopener">GitHub</a>
+      </div>
+      <p><b>Research interests:</b> machine learning, deep learning, image analysis, and artificial intelligence for healthcare.</p>
+      <div class="pubs">
+        <h2>Two peer-reviewed journal papers</h2>
+        <div class="pub">
+          <h3>Automatic diabetes prediction with explainable machine learning techniques</h3>
+          <div class="where"><i>IAES International Journal of Artificial Intelligence</i>, 2024</div>
+          <a href="https://doi.org/10.11591/ijai.v14.i1.pp408-415" rel="noopener">Read the paper</a>
+        </div>
+        <div class="pub">
+          <h3>Natural language processing and sentiment analysis on Bangla social media comments on the Russia–Ukraine war using transformers</h3>
+          <div class="where"><i>Vietnam Journal of Computer Science</i>, 2023</div>
+          <a href="https://doi.org/10.1142/S2196888823500021" rel="noopener">Read the paper</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <article class="pub">
+        <h3>Automatic diabetes prediction with explainable machine learning techniques</h3>
+        <div class="by">A. Haque, S. Islam, N. R. Mim, <b>S. M. Meem</b>, A. Saha, and R. Khan</div>
+        <div class="where"><i>IAES International Journal of Artificial Intelligence</i>, vol. 14, no. 1, pp. 408–415, 2024.</div>
+        <a href="https://doi.org/10.11591/ijai.v14.i1.pp408-415" rel="noopener">doi.org/10.11591/ijai.v14.i1.pp408-415</a>
+      </article>
+      <article class="pub">
+        <h3>Natural language processing and sentiment analysis on Bangla social media comments on the Russia–Ukraine war using transformers</h3>
+        <div class="by">M. Hasan, L. Islam, I. Jahan, <b>S. M. Meem</b>, and R. M. Rahman</div>
+        <div class="where"><i>Vietnam Journal of Computer Science</i>, vol. 10, no. 3, pp. 329–356, 2023.</div>
+        <a href="https://doi.org/10.1142/S2196888823500021" rel="noopener">doi.org/10.1142/S2196888823500021</a>
+      </article>
+    </section>
+
+    <section id="research">
+      <h2>Research and projects</h2>
+      <article class="proj">
+        <h3>Histology image analysis <span class="tag">In progress</span></h3>
+        <p class="sub">Applying deep learning to histology images</p>
+        <p>An ongoing project that connects my interest in image analysis with healthcare. I am building it on the medical imaging training I received at icddr,b in 2026.</p>
+        <ul class="chips" aria-label="Topics"><li>Image analysis</li><li>Deep learning</li><li>Histology</li><li>AI for healthcare</li></ul>
+      </article>
+      <article class="proj">
+        <h3>BIA phase angle statistical analysis</h3>
+        <p class="sub">A reproducible Python pipeline for bioelectrical impedance analysis</p>
+        <ul>
+          <li>Translated an existing R analysis into a fully reproducible Python workflow, from preprocessing to publication-quality figures.</li>
+          <li>Compared body composition and phase angle across four study groups: EGD healthy, EGD low BMI, pregnant healthy, and pregnant low BMI.</li>
+          <li>Applied normality tests, one-way ANOVA with Tukey HSD, Kruskal–Wallis, Spearman correlation, and linear regression with diagnostics (VIF, residual plots).</li>
+          <li>The dataset is confidential, so the repository shares only the code and generated outputs.</li>
+        </ul>
+        <ul class="chips" aria-label="Topics"><li>Biostatistics</li><li>Regression</li><li>Reproducible research</li><li>Jupyter</li></ul>
+        <a class="repo" href="https://github.com/SabrinaMannan/bia-phase-angle-analysis" rel="noopener">View code on GitHub</a>
+      </article>
+      <article class="proj">
+        <h3>Automatic diabetes prediction</h3>
+        <p class="sub">Explainable machine learning for early detection of type 2 diabetes</p>
+        <ul>
+          <li>Developed machine learning models to predict early onset of type 2 diabetes using the Pima Indian dataset and a Bangladeshi hospital dataset.</li>
+          <li>Contributed to coding, data preprocessing, and model implementation.</li>
+          <li>Applied explainable techniques to support healthcare prediction research.</li>
+        </ul>
+        <ul class="chips" aria-label="Topics"><li>Explainable AI</li><li>Healthcare prediction</li><li>Data preprocessing</li><li>Python</li></ul>
+      </article>
+      <article class="proj">
+        <h3>Sentiment analysis of Bangla social media comments</h3>
+        <p class="sub">Undergraduate thesis on the Russia–Ukraine war, using transformers</p>
+        <ul>
+          <li>Built a Bangla-annotated dataset for sentiment analysis.</li>
+          <li>Fine-tuned and evaluated five transformer-based models to compare their performance.</li>
+          <li>Worked on dataset preparation, coding, and model evaluation, aiming to contribute to Bangla NLP research.</li>
+        </ul>
+        <ul class="chips" aria-label="Topics"><li>Natural language processing</li><li>Transformers</li><li>Bangla NLP</li><li>Dataset creation</li></ul>
+      </article>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <ol class="tl">
+        <li>
+          <h3>Data Management Assistant</h3>
+          <div class="meta">icddr,b (International Centre for Diarrhoeal Disease Research, Bangladesh), Dhaka. March 2024 to present</div>
+          <ul>
+            <li>Design and maintain research databases that support multiple health studies, and write queries and analytical summaries for research teams.</li>
+            <li>Check data accuracy and quality with field staff and statisticians.</li>
+            <li>Manage full data workflows: cleaning, organizing, and preparing datasets for analysis under research protocols.</li>
+            <li>Keep documentation and regular database backups to protect data integrity.</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Data Associate</h3>
+          <div class="meta">Adiva Graphics, Dhaka. October 2022 to June 2023</div>
+          <ul>
+            <li>Analyzed market research data to find industry trends and competitive insights.</li>
+            <li>Built charts, graphs, and diagrams in PowerPoint and Google Slides.</li>
+            <li>Researched competitors and presented findings in reports and dashboards in Excel.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="training">
+      <h2>Training and recognition</h2>
+      <ol class="tl">
+        <li>
+          <h3>HSIL Hackathon 2026 finalist</h3>
+          <div class="meta">Selected as a finalist from Bangladesh</div>
+          <p>Chosen for healthcare AI innovation after two intensive bootcamps on AI and machine learning in healthcare, value proposition design, venture development, and competitive landscape analysis.</p>
+        </li>
+        <li>
+          <h3>Workshop on Using Artificial Intelligence in Medical Imaging</h3>
+          <div class="meta">icddr,b, 2026</div>
+          <p>Hands-on training in image preprocessing, denoising, deep learning for image classification and segmentation, and clinical imaging applications.</p>
+        </li>
+        <li>
+          <h3>Basic Epidemiology and Biostatistics for Young Researchers</h3>
+          <div class="meta">icddr,b, 2025</div>
+          <p>Epidemiological study design, statistical reasoning, and biostatistical methods for health research.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Programming</dt><dd>Python, SQL</dd>
+        <dt>Machine learning</dt><dd>Scikit-learn, supervised learning, model evaluation, explainable AI</dd>
+        <dt>Statistics</dt><dd>Hypothesis testing, ANOVA, non-parametric tests, linear regression and diagnostics</dd>
+        <dt>Image analysis</dt><dd>Familiar with OpenCV, image preprocessing, and feature extraction concepts</dd>
+        <dt>Data analysis</dt><dd>Pandas, NumPy, STATA, Power BI, Excel</dd>
+        <dt>Tools</dt><dd>Jupyter Notebook, Git, GitHub, Microsoft Office, Google Workspace</dd>
+      </dl>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu">
+        <h3>BSc in Computer Science and Engineering</h3>
+        <p>North South University, Bangladesh, 2018 to 2022.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:sabrinameem1@gmail.com">sabrinameem1@gmail.com</a></li>
+        <li>GitHub: <a href="https://github.com/SabrinaMannan" rel="noopener">github.com/SabrinaMannan</a></li>
+        <li>Based in Dhaka, Bangladesh</li>
+      </ul>
+      <footer>&copy; 2026 Sabrina Mannan Meem</footer>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  try{var saved=localStorage.getItem('theme'); if(saved) root.setAttribute('data-theme',saved);}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark' ||
+      (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});
+        }
+      });
+    },{rootMargin:'-30% 0px -60% 0px'});
+    secs.forEach(function(s){if(s)io.observe(s);});
+  }
+})();
+</script>
+</body>
+</html>
